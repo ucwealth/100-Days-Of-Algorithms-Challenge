@@ -10,24 +10,21 @@ import Foundation
  */
 
 func squareDigits(_ num: Int) -> Int {
-   let numb = String(num)
-   var numArr = [String]()
-   var result = ""
+    let numb = String(num)
+    var str = ""
   
     for i in numb {
-      numArr.append(String(i))
+        let l = (Int(String(i))! * Int(String(i))!)
+        str += String(l)
     }
-    var intArr = [Int]()
-    for j in numArr {
-        let l = (Int(j)! * Int(j)!)
-        intArr.append(Int(j)! * Int(j)!)
-        result += String(l)
-    }
-    return Int(result)!
+    
+    return Int(str)!
    
 }
+print(squareDigits(12345))
 
 /**
+ 2.=========
  
  Born a misinterpretation of this kata, your task here is pretty simple: given an array of values and an amount of beggars, you are supposed to return an array with the sum of what each beggar brings home, assuming they all take regular turns, from the first to the last.
 
