@@ -39,4 +39,20 @@ func reverseSeq(n: Int) -> [Int] {
  *
  */
 
+func inArray(_ a1: [String], _ a2: [String]) -> [String] {
+var arr = [String]()
+  if a1 == a2 {
+    return ["duplicates"]
+  }
+  for i in a1 {
+    for j in a2 {
+      if j.contains(i){
+        arr.append(i)
+        break
+      }
+    }
+  }
+  return arr.sorted()
+}
+
 
