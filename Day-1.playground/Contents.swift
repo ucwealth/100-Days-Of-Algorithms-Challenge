@@ -1,6 +1,16 @@
 import Foundation
 
 /**
+ 
+ Day-1
+ https://www.codewars.com/kata/580dda86c40fa6c45f00028a/train/java
+ 
+ https://www.codewars.com/kata/59590976838112bfea0000fa/train/java
+
+ [Swift]
+ https://www.codewars.com/kata/546e2562b03326a88e000020/train/java
+
+
  1.=====
  
  Welcome. In this kata, you are asked to square every digit of a number and concatenate them.
@@ -24,6 +34,7 @@ func squareDigits(_ num: Int) -> Int {
 print(squareDigits(12345))
 
 /**
+ 
  2.=========
  
  Born a misinterpretation of this kata, your task here is pretty simple: given an array of values and an amount of beggars, you are supposed to return an array with the sum of what each beggar brings home, assuming they all take regular turns, from the first to the last.
