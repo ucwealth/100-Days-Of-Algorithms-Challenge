@@ -8,7 +8,7 @@
 import Foundation
 
 /**
- *
+ * Question 1
  *Write a function called repeatStr which repeats the given string string exactly n times.
  
  repeatStr(6, "I") // "IIIIII"
@@ -23,6 +23,7 @@ func repeatStr(_ n: Int, _ string: String) -> String {
 
 
 /*
+ Question 2
  
  Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
 
@@ -39,5 +40,20 @@ func repeatStr(_ n: Int, _ string: String) -> String {
  */
 
 func persistence(for num: Int) -> Int {
+   if num <10 {
+     return 0
+   }
+  var num = num
+  var strNum = String(num)
+  for i in strNum where num > 1 {
+    let mult = num.reduce(0, *)
+    
+  }
+    print(mult)
    return 0
 }
+persistence(-8)
+persistence(8)
+persistence(123)
+
+
