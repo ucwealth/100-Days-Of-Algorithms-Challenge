@@ -1,6 +1,6 @@
 Day5 - Copy code to playground
 
-Challenge 1: Reverse or rotate -  https://www.codewars.com/kata/56b5afb4ed1f6d5fb0000991
+//Challenge 1: Reverse or rotate -  https://www.codewars.com/kata/56b5afb4ed1f6d5fb0000991
 
 /*
  The input is a string str of digits. Cut the string into chunks (a chunk here is a substring of the initial string) of size sz (ignore the last chunk if its size is less than sz).
@@ -30,33 +30,30 @@ extension Array {
     }
   }
 }
-func revRot(_ s: String, _ c: Int) -> String {
-if s == "" || c <= 0 || c > s.count { return "" }
-var result: [String] = []
-var chunk = Array(s).chunked(into: c)
-var filteredChunk = chunk.filter({ $0.count == c })
-for eachArray in filteredChunk {
-    for j in eachArray {
-         Int(String(j))! * Int(String(j))! * Int(String(j))!
-    } //squared
-    let reduced = eachArray.reduce(0, +)
-    if ( reduced % 2 == 0 ) {
-        result.append(String(eachArray.reversed()))
-    } else {
-        //rotate
-        var each = eachArray
-        var last = each.popLast()
-        each.insert(last!, at: 0)
-        result.append(String(each))
+func revrot(_ s: String, _ c: Int) -> String {
+    if s == "" || c <= 0 || c > s.count { return "" }
+    var result: [String] = []
+    let chunk = Array(s).chunked(into: c)
+    let filteredChunk = chunk.filter({ $0.count == c })
+    for i in filteredChunk {
+       let ans = i.map({ Int(String($0))! }).map({ $0 * $0 * $0 }).reduce(0,+)
+        if ans.isMultiple(of: 2) {
+            let rev = String(i.reversed())
+            result.append(rev)
+        } else {
+            //rotate
+            var each = i
+            let first = each.removeFirst()
+            each.insert(first, at: each.count )
+            result.append(String(each))
+        }
     }
-    
-}
-return result.joined()
+    return result.joined()
 }
 
-MARK:-
+//MARK:-
 
-Challenge 2: Sum of angles - https://www.codewars.com/kata/5a03b3f6a1c9040084001765
+//Challenge 2: Sum of angles - https://www.codewars.com/kata/5a03b3f6a1c9040084001765
 
 //Find the total sum of internal angles (in degrees) in an n-sided simple polygon. N will be greater than 2.
 
