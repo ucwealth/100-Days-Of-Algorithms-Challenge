@@ -23,9 +23,43 @@ Challenge 1: Reverse or rotate -  https://www.codewars.com/kata/56b5afb4ed1f6d5f
  revrot("563000655734469485", 4) --> "0365065073456944"
  */
 
+extension Array {
+  func chunked(into size: Int) -> [[Element]] {
+    return stride(from: 0, to: count, by: size).map {
+        Array(self[$0 ..< Swift.min($0 + size, count)])
+    }
+  }
+}
+func revRot(_ s: String, _ c: Int) -> String {
+if s == "" || c <= 0 || c > s.count { return "" }
+var result: [String] = []
+var chunk = Array(s).chunked(into: c)
+var filteredChunk = chunk.filter({ $0.count == c })
+for eachArray in filteredChunk {
+    for j in eachArray {
+         Int(String(j))! * Int(String(j))! * Int(String(j))!
+    } //squared
+    let reduced = eachArray.reduce(0, +)
+    if ( reduced % 2 == 0 ) {
+        result.append(String(eachArray.reversed()))
+    } else {
+        //rotate
+        var each = eachArray
+        var last = each.popLast()
+        each.insert(last!, at: 0)
+        result.append(String(each))
+    }
+    
+}
+return result.joined()
+}
+
 MARK:-
 
 Challenge 2: Sum of angles - https://www.codewars.com/kata/5a03b3f6a1c9040084001765
 
 //Find the total sum of internal angles (in degrees) in an n-sided simple polygon. N will be greater than 2.
+
+return (( (n - 3) * 180) + 180 )
+// a cleaner result -> (n-2)*180
 
