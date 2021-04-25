@@ -40,3 +40,6 @@ func countDuplicates(_ s:String) -> Int {
     return result.count
 }
 
+countDuplicates("aabbcde")
+
+//[1,2,3,4,5].reduce(0, { $0 + $1 })
