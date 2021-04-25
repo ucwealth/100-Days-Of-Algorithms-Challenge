@@ -28,3 +28,60 @@ import Foundation
 
  */
 //MARK:- Best Travel -> Solution
+
+func combos<T>(elements: ArraySlice<T>, kc: Int) -> [[T]] {
+    if kc == 0 {
+        return [[]]
+    }
+
+    guard let first = elements.first else {
+        return []
+    }
+
+    let head = [first]
+    let subcombos = combos(elements: elements, kc: kc - 1)
+    var ret = subcombos.map { head + $0 }
+    ret += combos(elements: elements.dropFirst(), kc: kc)
+    return ret
+}
+
+func combos<T>(elements: Array<T>, kc: Int) -> [[T]] {
+    return combos(elements: ArraySlice(elements), kc: kc)
+}
+
+
+func chooseBestSum(_ t: Int, _ k: Int, _ ls: [Int]) -> Int {
+    var permuteLs = combos(elements:ls, kc:k)
+    if ls.count < 2 { return -1 }
+    
+    var reject = [[Int]]()
+    for i in permuteLs {
+        var adict = [Int]()
+        for j in i {
+            if adict.contains(j) {
+                reject.append(i)
+                break
+            } else {
+                adict.append(j)
+            }
+        }
+    }
+    permuteLs.removeAll(where: { reject.contains($0) })
+//    print(permuteLs)
+    let a = permuteLs.map({ $0.reduce(0,+) }).filter({ $0 <= t }).max() ?? -1
+    return a
+}
+
+//TESTS:-
+
+let ls = [91, 74, 73, 85, 73, 81, 87]
+chooseBestSum(230, 3, ls)
+chooseBestSum(331, 2, ls)
+chooseBestSum(331, 4, ls)
+
+var ts = [50, 55, 56, 57, 58]
+chooseBestSum(163, 3, ts) //163
+ts = [50]
+chooseBestSum(163, 3, ts) // -1
+
+
