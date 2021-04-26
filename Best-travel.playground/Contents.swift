@@ -50,6 +50,8 @@ func combos<T>(elements: Array<T>, kc: Int) -> [[T]] {
 }
 
 
+
+
 func chooseBestSum(_ t: Int, _ k: Int, _ ls: [Int]) -> Int {
     var permuteLs = combos(elements:ls, kc:k)
     if ls.count < 2 { return -1 }
@@ -67,7 +69,6 @@ func chooseBestSum(_ t: Int, _ k: Int, _ ls: [Int]) -> Int {
         }
     }
     permuteLs.removeAll(where: { reject.contains($0) })
-//    print(permuteLs)
     let a = permuteLs.map({ $0.reduce(0,+) }).filter({ $0 <= t }).max() ?? -1
     return a
 }
@@ -75,13 +76,13 @@ func chooseBestSum(_ t: Int, _ k: Int, _ ls: [Int]) -> Int {
 //TESTS:-
 
 let ls = [91, 74, 73, 85, 73, 81, 87]
-chooseBestSum(230, 3, ls)
-chooseBestSum(331, 2, ls)
-chooseBestSum(331, 4, ls)
+print(chooseBestSum(230, 3, ls))
+print(chooseBestSum(331, 2, ls))
+print(chooseBestSum(331, 4, ls))
 
 var ts = [50, 55, 56, 57, 58]
-chooseBestSum(163, 3, ts) //163
+print(chooseBestSum(163, 3, ts) ) //163
 ts = [50]
-chooseBestSum(163, 3, ts) // -1
+print(chooseBestSum(163, 3, ts) )// -1
 
 
