@@ -36,13 +36,23 @@ import Foundation
 
 //MARK:- Solution
 
+//func vertMirror(_ s: String) -> String {
+//    // your code
+//}
+
 func horMirror(_ s: String) -> String {
-    // your code
+    let value = s.replacingOccurrences(of: "\n", with: ",")
+    let arrValue = value.components(separatedBy: " , ")
+    print(arrValue)
+    let res = arrValue.reversed()
+    print(res)
+    return res.joined()
 }
-func vertMirror(_ s: String) -> String {
-    // your code
-}
+
 // replace the dots with function parameter
-func oper(..., _ s: String) -> String {
-    // your code
-} 
+//func oper(..., _ s: String) -> String {
+//    // your code
+//}
+var s = "abcd\nefgh\nijkl\nmnop"
+//var s = "abcd,nefgh,nijkl,nmnop"
+horMirror(s)

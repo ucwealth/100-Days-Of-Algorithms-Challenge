@@ -13,13 +13,45 @@ Note: for this kata y isn't considered a vowel.
  */ 
 
 //MARK:- SOLUTION
-func disemvowel(_ s: String) -> String {
-let vowels = ["a", "e", "i", "o", "u"]
-var str = s
-  for i in str {
-    if vowels.contains(String(i)) || vowels.contains(String(i).lowercased()) {
-        str.removeAll { $0 == i }
+//func disemvowel(_ s: String) -> String {
+//let vowels = ["a", "e", "i", "o", "u"]
+//var str = s
+//  for i in str {
+//    if vowels.contains(String(i)) || vowels.contains(String(i).lowercased()) {
+//        str.removeAll { $0 == i }
+//    }
+//  }
+//  return str
+//}
+
+/*
+ Write a function that accepts a string of words with a similar prefix, separated by spaces, and
+
+ returns the longest substring that prefixes all words.
+
+ Sample input and output
+
+ • The string “swift switch swill swim” should return “swi”.
+
+ • The string “flip flap flop” should return “fl”.
+ */
+//["s":4,"w":4,"i":4,"f":1,"t":2,"c":1,"h":1,"l":2,"m":1]
+
+func getPrefix(_ str: String)-> String{
+    let strArr = str.components(separatedBy: " ")
+    let base = strArr[0]
+    var result = ""
+    
+    for i in str {
+        for j in String(i) {
+            if String(base).contains(j){
+                result.append(j)
+            }
+        }
+
     }
-  }
-  return str
+    
+    return result
 }
+getPrefix("swift switch swill swim")
+getPrefix("flip flap flop")
