@@ -23,6 +23,12 @@ import Foundation
 //MARK:- CENTURY FROM YEAR
 
 func century(_ year: Int) -> Int {
-    // your code here
-    return 0
+//    var r = 0
+//    if year % 100 != 0 {
+//       r = (year/100) + 1
+//    } else {
+//      r = year/100
+//    }
+//    return r
+    return year % 100 != 0 ? (year/100) + 1 : year/100
 }

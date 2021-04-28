@@ -14,6 +14,15 @@ import Foundation
 //MARK:-
 
 func accum(_ s: String) -> String {
-  for num
+  
   return ""
 }
+
+let number = 0.1
+// Use ceil to remove the fractional part and round up.
+let result = ceil(number)
+
+
+let number1 = 1.1
+// Use floor to remove the fractional part and round down.
+let floor1 = floor(number1)
