@@ -57,3 +57,18 @@ import Foundation
  https://en.wikipedia.org/wiki/Mortgage_calculator
  FUNDAMENTALSMATHEMATICSALGORITHMSNUMBERS
  */
+
+func amort(_ rate: Double, _ balance: Double, _ term: Int, _ numPayments: Int) -> String {
+    
+    let r = ( rate / 100 ) * 12
+    let d = 1 - pow( (1 + r), Double(-term) )
+    let n = r * balance
+    let princ: Int
+    let int: Int
+    let c = Int(n/d)
+    c == ( princ + int )
+    let bal = balance - Double( princ )
+    
+    return "num_payment \(numPayments) c \(c) princ \(princ) int \(int) balance \(bal)"
+}
+amort(7.9, 107090, 48, 41)
