@@ -1,4 +1,5 @@
 import Foundation
+
 /*
 A binary gap within a positive integer N is any maximal sequence of consecutive zeros that is surrounded by ones at both ends in the binary representation of N.
 
@@ -17,4 +18,37 @@ N is an integer within the range [1..2,147,483,647].
  
  */
 
+public func solution(_ N : Int) -> Int {
+    let bin = String(N, radix: 2)
+    print(bin)
+    let arrBin = Array(bin)
+    var zeroCount = 0
+    var result = [Int]()
+    
+    for i in 0..<arrBin.count {
+        if arrBin[i] == "0" && arrBin[i - 1] == "1" {
+            let begin = arrBin[i]
+            
+            if !( arrBin.firstIndex(of: begin)! >= arrBin.count ) {
+                for j in arrBin.firstIndex(of: begin)!...arrBin.count {
+                    if arrBin[j] == "0" {
+                        zeroCount += 1
+                    } else {
+                        break
+                           }
+                }
+            }
+            result.append(zeroCount)
+            print(result)
+        }
+    }
+    return result.max()!
+}
 
+//print(solution(9))
+print(solution(529))
+//print(solution(20))
+//print(solution(15))
+//print(solution(32))
+//print(solution(1041))
+//print(solution(56545))
