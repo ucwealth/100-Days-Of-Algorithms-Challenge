@@ -59,24 +59,25 @@ import Foundation
  */
 
 func amort(_ rate: Double, _ balance: Double, _ term: Int, _ numPayments: Int) -> String {
-    var bal = balance
-    let r = rate / ( 100 * 12 )
-    print(r)
-    
-    let d = 1 - ( pow(1 + r , Double(-term) ) )
+    let r = rate / 1200
+    let d = 1 - ( pow( (1 + r) , Double(-term ) ) )
     let n = r * balance
-    
-    let int = (balance * rate * Double(term * 12) ) / 100
-    print(int)
-    
     let c = n/d
-    let princ = c - int
     
-    for _ in 1...term {
+    var int: Double = 0.0
+    var princ = 0.0
+    var bal = balance
+    for _ in 1...numPayments {
+        int = bal * r
+        princ = c - int
         bal -= princ
-        print(bal)
     }
-    print(bal)
-    return "num_payment \(numPayments) c \(c) princ \(princ) int \(int) balance \(bal)"
+    return "num_payment \(numPayments) c \(Int(round(c))) princ \(Int(round(princ))) int \(Int(round(int))) balance \(Int(round(bal)))"
 }
-amort(7.9, 107090, 48, 41)
+print(amort(7.9, 107090, 48, 41))
+
+print(amort(6, 100000, 360, 1))
+//"num_payment 1 c 600 princ 100 int 500 balance 99900"
+amort(6, 100000, 360, 12)
+//"num_payment 12 c 600 princ 105 int 494 balance 98772"
+
