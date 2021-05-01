@@ -19,36 +19,67 @@ N is an integer within the range [1..2,147,483,647].
  */
 
 public func solution(_ N : Int) -> Int {
-    let bin = String(N, radix: 2)
-    print(bin)
-    let arrBin = Array(bin)
-    var zeroCount = 0
-    var result = [Int]()
+    let binary = String(N, radix: 2)
+    var enumPair: [Int] = []
+    var result: [Int] = []
     
-    for i in 0..<arrBin.count {
-        if arrBin[i] == "0" && arrBin[i - 1] == "1" {
-            let begin = arrBin[i]
-            
-            if !( arrBin.firstIndex(of: begin)! >= arrBin.count ) {
-                for j in arrBin.firstIndex(of: begin)!...arrBin.count {
-                    if arrBin[j] == "0" {
-                        zeroCount += 1
-                    } else {
-                        break
-                           }
-                }
-            }
-            result.append(zeroCount)
-            print(result)
+    for (index, value) in binary.enumerated() {
+        if value == "1" {
+            enumPair.append(index)
         }
     }
-    return result.max()!
-}
 
-//print(solution(9))
+    for i in 0..<enumPair.count - 1 {
+        let sol = (enumPair[i+1] - enumPair[i]) - 1
+        if sol == 0 {
+            continue
+        }
+        result.append(sol)
+    }
+    return (result.max() ?? 0)
+    
+    
+//    let bin = String(N, radix: 2)
+//    print(bin)
+//    let arrBin = Array(bin)
+//    var result = [Int]()
+//    var onecount = 0
+//    var zeroCount = 0
+//
+//    for i in 1...arrBin.count {
+//        print(i)
+//
+//        if arrBin[i] == "0" && arrBin[i - 1] == "1" {
+//            zeroCount = 0
+//            let begin = arrBin[i]
+//
+//            if arrBin.firstIndex(of: begin)! < arrBin.count {
+//                for j in arrBin.firstIndex(of: begin)!...arrBin.count {
+//
+//                    if arrBin[j] == "0" {
+//                        zeroCount += 1
+//                    } else {
+//                        onecount += 1
+//                        result.append(zeroCount)
+//                        break
+//                      }
+//                }
+//            } else {
+//                print("out of range")
+//                break
+//            }
+//            print(result)
+//
+//        } else {
+//            print("Doesnt match pattern")
+//        }
+//    }
+//    return result.max()!
+}
 print(solution(529))
-//print(solution(20))
-//print(solution(15))
-//print(solution(32))
-//print(solution(1041))
-//print(solution(56545))
+print(solution(9))
+print(solution(20))
+print(solution(15))
+print(solution(32))
+print(solution(1041))
+print(solution(56545))
