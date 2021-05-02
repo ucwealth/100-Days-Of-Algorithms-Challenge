@@ -27,3 +27,7 @@ import Foundation
  digPow(46288, 3) should return 51 since 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51
  
  */
+
+func digPow(for number: Int, using power: Int) -> Int {
+    return 0
+}

@@ -35,3 +35,7 @@ import Foundation
 
  e.g "0785" becomes 2 strings comprising "078" and "5".
  */
+
+function isSumOfCubes(s){
+  // ...
+}
