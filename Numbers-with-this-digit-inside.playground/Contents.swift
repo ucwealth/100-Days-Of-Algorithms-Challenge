@@ -39,10 +39,12 @@ func numbersWithDigitInside(_ x: Int64, _ d: Int64) -> [Int64] {
   if arr.count > 0{
     mult = Int64(arr.reduce(1, *))
   }
-    
+
     let result: [Int64] = [count, sum, mult]
     return result
 
 }
+
+
 
 

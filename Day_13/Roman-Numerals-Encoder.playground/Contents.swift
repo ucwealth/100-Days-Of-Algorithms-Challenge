@@ -27,44 +27,27 @@ import Foundation
 func solution(_ number:Int) -> String {
     var num = number
     var result = ""
-    //let rn: [Int:String] = [1: "I", 4: "IV", 5: "V", 9: "IX", 10: "X", 50: "L", 100: "C", 500: "D", 1000: "M"]
     
-    let roman = ["I","IV","V","IX","X","XL","L","XC","C","CD","D","DM","M"]
-    let digits = [1,4,5,9,10,40,50,90,100,400,500,900,1000]
+    let decimals = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+    let roman = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
     
-    for i in 0..<digits.count {
-        while digits[i] <= num {
-            result += roman[i]
-            num -= digits[i]
+    while num > 0 {
+        for (index, decimal) in decimals.enumerated() {
+        
+            if num - decimal >= 0 {
+                result += roman[index]
+                num -= decimal
+                break
+            }
         }
     }
-    /*
-     for (var index = 0; index < decimalValue.length; index++) {
-       while (decimalValue[index] <= num) {
-         romanized += romanNumeral[index];
-         num -= decimalValue[index];
-       }
-     }
-     */
-//
-//    for i in rn.keys {
-//      if num == i {
-//        result += rn[num] ?? "0"
-//      }
-//      else if num > 0 && num <= 3 {
-//        result += ( rn[num] * num ) ?? "1"
-//      }
-//    }
+        
     return result
 }
 solution(1000)
 solution(5)
-solution(2)
+solution(4)
 solution(1952)
 
-//var myDictionary:[String:Int] = ["Mohan":75, "Raghu":82, "John":79]
-//
-//for (index, key_value) in myDictionary.enumerated() {
-//   print("\(index): \(key_value)")
-//}
+
 

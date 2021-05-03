@@ -16,11 +16,12 @@ import Foundation
 func accum(_ s: String) -> String {
     var resArr = [String]()
     for (index, value) in s.enumerated(){
+        print("\(index) , \(value)")
         let repeated = Array.init(repeating: value, count: index+1)
         resArr.append(String(repeated))
     }
     return resArr.joined(separator: "-").capitalized
 }
-let s = "RqaEzty"
+let s = "abcd"
 accum(s)
 
