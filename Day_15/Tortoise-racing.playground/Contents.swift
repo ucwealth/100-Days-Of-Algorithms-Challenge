@@ -34,11 +34,10 @@ func race(_ v1: Int, _ v2: Int, _ g: Int) -> [Int]? {
   if v1 >= v2 {
     return nil
   }
-  var diff = Double(g) / Double(v2 - v1)
-    
+ let diff = Double(g) / Double(v2 - v1)
  let result:[Int] = [Int(diff) , Int(diff * 60) % 60 , Int(diff * 60 * 60) % 60 ]
  return result
 }
 
 race(720, 850, 70) // [0, 32, 18] or "0 32 18"
-race(80, 91, 37)  // [3, 21, 49] or "3 21 49" //
+race(80, 91, 37)  // [3, 21, 49] or "3 21 49" 
