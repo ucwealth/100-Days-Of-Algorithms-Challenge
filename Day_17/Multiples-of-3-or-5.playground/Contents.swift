@@ -14,7 +14,7 @@ import Foundation
 //MARK:-
 
 func solution(_ num: Int) -> Int {
-    var arr = [Int]()
+    var sum = 0
     if num < 0 {
         return 0
     }
@@ -22,7 +22,7 @@ func solution(_ num: Int) -> Int {
         if ( i.isMultiple(of: 3) ) && ( i.isMultiple(of: 5) ) {
            continue
         }
-        arr.append(i)
+        sum += i
     }
-    return arr.reduce(0, +)
+    return sum
 }
