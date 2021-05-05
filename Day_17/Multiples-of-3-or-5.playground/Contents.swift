@@ -14,5 +14,15 @@ import Foundation
 //MARK:-
 
 func solution(_ num: Int) -> Int {
-  return 0
+    var arr = [Int]()
+    if num < 0 {
+        return 0
+    }
+    for i in 0...num where i.isMultiple(of: 3) || i.isMultiple(of: 5) {
+        if ( i.isMultiple(of: 3) ) && ( i.isMultiple(of: 5) ) {
+           continue
+        }
+        arr.append(i)
+    }
+    return arr.reduce(0, +)
 }
