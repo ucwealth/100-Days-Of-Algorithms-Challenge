@@ -18,11 +18,9 @@ func solution(_ num: Int) -> Int {
     if num < 0 {
         return 0
     }
-    for i in 0...num where i.isMultiple(of: 3) || i.isMultiple(of: 5) {
-        if ( i.isMultiple(of: 3) ) && ( i.isMultiple(of: 5) ) {
-           continue
-        }
+    for i in 0..<num where i.isMultiple(of: 3) || i.isMultiple(of: 5) {
         sum += i
     }
     return sum
 }
+solution(10)
