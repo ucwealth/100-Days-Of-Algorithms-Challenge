@@ -24,3 +24,13 @@ func solution(_ num: Int) -> Int {
     return sum
 }
 solution(10)
+
+//Alternatives
+
+//func solution(_ num: Int) -> Int {
+//  return (0..<num).filter { ($0 % 3 * $0 % 5) == 0 }.reduce(0, +) // the * inside the closure means 'or'
+//}
+//
+//func solution(_ num: Int) -> Int {
+//  return (0..<num).filter { $0.isMultiple(of: 3) || $0.isMultiple(of: 5) }.reduce(.zero, +)
+//}
