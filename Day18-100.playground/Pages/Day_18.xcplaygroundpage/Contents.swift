@@ -44,8 +44,36 @@ import Foundation
  See Examples Test Cases for more examples.
  */
 
+var names = "COLIN,AMANDBA,AMANDAB,CAROL,PauL,JOSEPH"
+var nameArray = names.split(separator: ",")
+var weights = [1, 4, 4, 5, 2, 1]
+var n = 4
+
 func rank(_ st: String, _ we: [Int], _ n: Int) -> String {
-    return ""
+    if st == "" {
+    return "No participants"
+    }
+
+    let alphabets = "abcdefghijklmnopqrstuvwxyz".map({ $0 })
+    var alphadict = [Int: String]()
+    for (index ,value) in alphabets.enumerated() {
+        alphadict[index + 1] = String(value)
+    }
+    print(alphadict)
+    
+    
+    var rankSum = 0
+    var stArr = st.split(separator: ",")
+    for i in stArr {
+        i.map({  })
+    }
+
+  return ""
+
 }
+rank(names, weights, n)
+
+var k = (one: 1, two: "2")
+type(of: k)
 
 //: [Next](@next)
